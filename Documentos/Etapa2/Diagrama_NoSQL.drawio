@@ -1,0 +1,74 @@
+<mxfile host="app.diagrams.net" modified="2023-11-23T02:59:36.114Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0" etag="b93R4Ue7TG72pGbKriDN" version="22.1.3" type="device">
+  <diagram name="Página-1" id="JrGrTP_44fC2YgYqHUXZ">
+    <mxGraphModel dx="1589" dy="639" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EF7FNvt2r8mRT201HifV-3" value="&lt;div&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;{&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Id&quot;: &quot;&amp;lt;ObjectPrincipalId1&amp;gt;&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;TitleBasicId&quot;: &quot;&amp;lt;ObjectBasicId1&amp;gt;&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;PersonId&quot;: &quot;&amp;lt;ObjectPersonId1&amp;gt;&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Ordering&quot;: &quot;1&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Category&quot;: &quot;director&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Job&quot;: &quot;&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Characters&quot;: []&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;}&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="550" y="140" width="280" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-4" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;principal &lt;b&gt;Document&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="550" y="110" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-6" value="&lt;div&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;{&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;id&quot;: &quot;&amp;lt;ObjectPersonId1&amp;gt;&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;primary_name&quot;: &quot;Johan Renck&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;birth_year&quot;: &quot;1966&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;death_year&quot;: &quot;null&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;primary_profession&quot;: [&quot;director&quot;,&quot;soundtrack&quot;,&quot;actor&quot;],&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;KnowForTitles&quot; : [&quot;&amp;lt;ObjectBasicId1&amp;gt;&quot;, &quot;&amp;lt;ObjectBasicId2&amp;gt;&quot;,&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;&amp;lt;ObjectBasicId3&amp;gt;&quot;, &quot;&amp;lt;ObjectBasicId4&amp;gt;&quot;]&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;}&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="940" y="140" width="410" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-7" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;person&amp;nbsp;&lt;b&gt;Document&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="940" y="110" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-9" value="&lt;div&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;{&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Id&quot;: &quot;&amp;lt;ObjectBasicId1&amp;gt;&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Type&quot;: &quot;tvSeries&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;IsAdult&quot;: &quot;0&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;PrimaryTtitle&quot;: &quot;Breaking Bad&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;StartYear&quot;: &quot;2008&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;EndYear&quot;: &quot;2013&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;OriginalTitle&quot;: &quot;Breaking Bad&quot;,&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;runtimeMinutes&quot;: &quot;49&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;genres&quot;: [&quot;Crime&quot;,&quot;Drama&quot;,&quot;Thriller&quot;],&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Rating&quot;: {&quot;NumVotes&quot;: &quot;1486688&quot;, &quot;AverageRating&quot;: &quot;9.5&quot;}&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;}&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="10" y="140" width="450" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-10" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;basic&amp;nbsp;&lt;b&gt;Document&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="10" y="110" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-11" value="&lt;div&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;{&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Ordering&quot;: &quot;&amp;lt;ObjectAkasId2&amp;gt;&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;TitleBasicId&quot;: &quot;&amp;lt;ObjectBasicId1&amp;gt;&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Title&quot;: &quot;Рип покидает Сонную лощину&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Region&quot;: &quot;RU&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Language&quot;: &quot;ru-RU&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;Type&quot;: &quot;imdbDisplay&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;isOriginalTitle&quot;: &quot;0&quot;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;}&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="220" y="450" width="330" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-12" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;akas&amp;nbsp;&lt;b&gt;Document&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="220" y="420" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-13" value="&lt;div&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;{&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;id&quot;: &quot;&amp;lt;ObjectEpisodeId1&amp;gt;&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;TitleBasicId&quot;: &quot;&amp;lt;ObjectBasicId1&amp;gt;&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;EpisodeNumber&quot;: &quot;10&quot;,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp; &amp;nbsp; &quot;SeasonNumber&quot;: &quot;2&quot;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size=&quot;3&quot;&gt;}&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="680" y="400" width="270" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-15" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;episode&amp;nbsp;&lt;b&gt;Document&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="370" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-19" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.444;exitY=0.167;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="EF7FNvt2r8mRT201HifV-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="210" as="sourcePoint" />
+            <mxPoint x="570" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-20" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.049;entryY=0.167;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.929;exitY=0.389;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="EF7FNvt2r8mRT201HifV-3" target="EF7FNvt2r8mRT201HifV-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="820" y="99.94" as="sourcePoint" />
+            <mxPoint x="960.0900000000001" y="60.00000000000006" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-21" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.444;entryY=0.125;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.818;exitY=0.278;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="EF7FNvt2r8mRT201HifV-11" target="EF7FNvt2r8mRT201HifV-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="450" y="370" as="sourcePoint" />
+            <mxPoint x="550" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="520" y="500" />
+              <mxPoint x="520" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EF7FNvt2r8mRT201HifV-25" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.444;entryY=0.083;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.037;exitY=0.429;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="EF7FNvt2r8mRT201HifV-13" target="EF7FNvt2r8mRT201HifV-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="280" as="sourcePoint" />
+            <mxPoint x="640" y="230" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="610" y="460" />
+              <mxPoint x="610" y="430" />
+              <mxPoint x="500" y="430" />
+              <mxPoint x="500" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
