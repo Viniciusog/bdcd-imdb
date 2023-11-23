@@ -1,0 +1,12 @@
+{
+    "Id": "<ObjectBasicId1>",
+    "Type": "tvSeries",
+    "IsAdult": "0",
+    "PrimaryTtitle": "Breaking Bad",
+    "StartYear": "2008",
+    "EndYear": "2013",
+    "OriginalTitle": "Breaking Bad",    
+    "runtimeMinutes": "49",
+    "genres": ["Crime","Drama","Thriller"],
+    "Rating": {"NumVotes": "1486688", "AverageRating": "9.5"}
+}
