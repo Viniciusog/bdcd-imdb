@@ -2,7 +2,7 @@
 Trabalho de bdcd para realizar organização de dados utilizando MongoDB e NEO4J
 
 **Membros:** <br>
-Caio Ueda <br>
+Caio Ueda Sampaio 802215<br>
 Gabrielly Castilho <br>
 Lucas Balieiro <br> 
 Vinícius Guimarães <br>
