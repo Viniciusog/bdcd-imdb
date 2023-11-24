@@ -8,7 +8,9 @@ load_dotenv()
 MONGODB_URL = os.getenv("MONGODB_URL")
 myMongoClient = pymongo.MongoClient(MONGODB_URL)
 db = myMongoClient['projetoimdb']
-mainCollection  = db['main']
+mainCollection = db['main']
+genresCollection = db['genresCollection']
+testCollection = db['testCollection']
 
 class TitleBasic:
     def __init__(self, tconst, titleType, primaryTitle, originalTitle, isAdult, startYear, endYear, runtimeMinutes, genres):
@@ -117,10 +119,85 @@ def inserir_mongodb():
             #cont += 1
         
         print(allGenres)
-        
-        
 
+def get_all_genres():
+    with open("./ImdbTitleBasics.csv", 'r', encoding='utf-8') as arquivo_csv:
+        leitor_csv = csv.DictReader(arquivo_csv)
+
+        print("get_all_genres ....")
+
+        allGenres = []
+
+        for linha in leitor_csv:
+            for key, value in linha.items():
+                if key == 'genres':  
+                    myValue = value.split(',')
+
+                    for myGenre in myValue:
+                        if myGenre not in allGenres:
+                            allGenres.append(myGenre)            
         
+        allGenres.remove("\\N")
+        print(allGenres)
+        return allGenres
 
 
-inserir_mongodb()
+class GenreDoc:
+    def __init__(self, genre, titles):
+        self.genre = genre
+        self.titles = titles
+        
+def populateGenres():
+    genresArray = get_all_genres() 
+
+    for currentGenre in genresArray:
+        myObjectGenre = GenreDoc(currentGenre, [])
+        genresCollection.insert_one(myObjectGenre.__dict__)
+
+def addTitlesToGenresCollection():
+    with open("./ImdbTitleBasics.csv", 'r', encoding='utf-8') as arquivo_csv :
+        leitor_csv = csv.DictReader(arquivo_csv)
+
+        cont = 0
+        contTitle = 0
+
+        for linha in leitor_csv:
+            for genre in linha['genres'].split(','):
+                if genre != "\\N": # ! Essa parte pode estar causando demora no tempo
+                    result = genresCollection.update_one({'genre': genre}, 
+                                                         {'$push': {'titles': {'tconst':linha['tconst']}}})
+                    if result.modified_count > 0:                        
+                        cont += 1
+                    else:
+                        print("Documento não foi atualizado")    
+            contTitle += 1
+        print(f"Alterados: {cont}")
+        print(f'contTitle: {contTitle}')
+
+def addTitlesToTestCollection():
+    myGenres = get_all_genres()
+
+    with open("./ImdbTitleBasics.csv",'r', encoding='utf-8') as arquivo_csv:
+        leitor_csv = csv.DictReader(arquivo_csv)
+
+        myArr = []
+
+        for linha in leitor_csv:
+            
+        
+        # Antes de inserir dentro do mongodb, temos que fazer uma pré organização dos dados
+        # isso será feito colocando cada conjunto de ids dentro de um arquivo, para somente depois percorrer esse
+        # arquivo, vamos adicionar os ids dentro de um array, pois cabe dentro da memória e em seguida adicionar esse
+        # array todo como um insert_one dentro do objeto no mongodb
+        # --> Fazer a mesma coisa para o ano em que o filme foi lançado
+
+
+    print("alguma coisa")
+    
+#get_all_genres()
+#populateGenres()
+#inserir_mongodb()
+#addTitlesToGenresCollection()
+#inserir_mongodb()
+populateGenres()
+addTitlesToGenresCollection()
