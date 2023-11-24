@@ -177,12 +177,26 @@ def addTitlesToGenresCollection():
 def addTitlesToTestCollection():
     myGenres = get_all_genres()
 
+    myDict = {}
+
+    for genre in myGenres:
+        myDict[genre] = []
+
     with open("./ImdbTitleBasics.csv",'r', encoding='utf-8') as arquivo_csv:
         leitor_csv = csv.DictReader(arquivo_csv)
 
-        myArr = []
-
         for linha in leitor_csv:
+            for currentGenre in linha['genres'].split(','):
+                if currentGenre != "\\N":
+                    myDict[currentGenre].append(linha['tconst'])
+        
+
+    for key in myDict.keys():
+        print(f'{key}: {len(myDict[key])}')
+    
+    for key in myDict.keys():
+        testCollection.insert_one({'genre': key, 'titles': myDict[key]})
+
             
         
         # Antes de inserir dentro do mongodb, temos que fazer uma pré organização dos dados
@@ -199,5 +213,6 @@ def addTitlesToTestCollection():
 #inserir_mongodb()
 #addTitlesToGenresCollection()
 #inserir_mongodb()
-populateGenres()
-addTitlesToGenresCollection()
+#populateGenres()
+#addTitlesToGenresCollection()
+addTitlesToTestCollection()
