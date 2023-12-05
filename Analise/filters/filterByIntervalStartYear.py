@@ -15,6 +15,6 @@ def filterByIntervalStartYear():
     
     results = yearCollection.find(myFilter)
     for result in results:
-        print("Year: " + str(result['year']))    
+        print("Year: " + str(result['year']) + "\nTitles: " + str(result['titles']) + "\n")    
 
 filterByIntervalStartYear()
