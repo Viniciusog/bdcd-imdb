@@ -2,6 +2,7 @@ import csv
 import pymongo
 from dotenv import load_dotenv
 import os
+from util import get_all_genres
 
 load_dotenv()
 
@@ -196,4 +197,4 @@ def addTitlesToTestCollection():
 #inserir_mongodb()
 #populateGenres()
 #addTitlesToGenresCollection()
-addTitlesToTestCollection()
+#addTitlesToTestCollection()
