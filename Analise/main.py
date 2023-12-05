@@ -163,7 +163,7 @@ def addTitlesToGenresCollection():
 
         for linha in leitor_csv:
             for genre in linha['genres'].split(','):
-                if genre != "\\N": # ! Essa parte pode estar causando demora no tempo
+                if genre != "\\N": 
                     result = genresCollection.update_one({'genre': genre}, 
                                                          {'$push': {'titles': {'tconst':linha['tconst']}}})
                     if result.modified_count > 0:                        
