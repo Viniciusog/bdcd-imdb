@@ -8,36 +8,36 @@ load_dotenv()
 
 MONGODB_URL = os.getenv("MONGODB_URL")
 myMongoClient = pymongo.MongoClient(MONGODB_URL)
-db = myMongoClient['projetoimdb']
-mainCollection = db['main']
-testCollection = db['testCollection']
-testYearCollection = db['testYearCollection']
+db = myMongoClient["projetoimdb"]
+yearCollection = db["yearCollection"]
 
-def agruparAno():
+
+def groupByYear():
     print("Realizando agrupamento...")
-    with open("./ImdbTitleBasics.csv", "r", encoding="utf-8") as arquivo:
+    with open("./ImdbTitleBasics.csv", "r", encoding="utf-8") as myFile:
         # Cada linha fica no formato coluna/valor
-        leitor_csv = csv.DictReader(arquivo)
+        read_csv = csv.DictReader(myFile)
 
         allYears = {}
 
-        for linha in leitor_csv:
-            startYear = linha['startYear']
+        for line in read_csv:
+            startYear = line["startYear"]
             if startYear not in allYears:
-                allYears[startYear] = [linha['tconst']]
+                allYears[startYear] = [line["tconst"]]
             else:
-                allYears[startYear].append(linha['tconst'])
+                allYears[startYear].append(line["tconst"])
 
-        #for key in allYears:
+        # for key in allYears:
         #    print("key: " + key + ", valueCounts: " + str(len(allYears[key])))
-        
+
         print("Agrupamento finalizado.")
         return allYears
-    
-def inserirAllYears(allYears):
+
+
+def insertAllYears(allYears):
     print("Gravando no MongoDB...")
     for key in allYears:
-        testYearCollection.insert_one({'year':key, 'titles':allYears[key]})
+        yearCollection.insert_one({"year": key, "titles": allYears[key]})
     print("Finalizada escrita no MongoDB.")
 
-inserirAllYears(agruparAno())
+insertAllYears(groupByYear())
