@@ -24,7 +24,7 @@ def insertAllNames():
                 'knownForTitles':line['knownForTitles'].split(',')
             }
 
-            allTitlesCollection.insert_one(currentEpisode)
+            allNamesCollection.insert_one(currentEpisode)
         print("Finalizando inserção - allNamesCollection")
 
 
