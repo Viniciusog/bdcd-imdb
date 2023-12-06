@@ -8,7 +8,7 @@ load_dotenv()
 MONGODB_URL = os.getenv("MONGODB_URL")
 myMongoClient = pymongo.MongoClient(MONGODB_URL)
 db = myMongoClient["projetoimdb"]
-allRatingsCollection = db["allRatingsCollection"]
+ratingsCollection = db["ratingsCollection"]
 
 
 def groupByRating():
@@ -19,23 +19,27 @@ def groupByRating():
         ratings = {}
 
         for line in read_csv:
-            movie_rating = int(float(line["averageRating"]))
+            title_rating = int(float(line["averageRating"]))
 
-            if movie_rating not in ratings:
-                ratings[movie_rating] = [] 
+            #tconst,averageRating,numVotes
+            if title_rating not in ratings:
+                ratings[title_rating] = []
 
-            ratings[movie_rating].append(line['tconst'])
+            ratings[title_rating].append((line['tconst'], line['averageRating'], line['numVotes']))
             
-        #print(ratings[1])
-
+        #print(ratings[5])
         print("Agrupamento finalizado.")
         return ratings
 
 
 def insertRatings(ratings):
     print("Gravando no MongoDB...")
-    for key in ratings:
-        allRatingsCollection.insert_one({"rating": key, "titles": ratings[key]})
+    for rating in ratings: #percorre a avaliação
+        for title in rating: #percorre os títulos da avaliação
+            tconst, avgRating, numVotes = title
+            ratingsCollection.insert_one({"tconst": tconst, "avgRating": avgRating, "numVotes": numVotes})
+    
     print("Finalizada escrita no MongoDB.")
 
-insertRatings()
+#insertRatings()
+groupByRating()

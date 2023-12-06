@@ -15,6 +15,6 @@ def filterByRatingRange():
     
     results = ratingCollection.find(filter)
     for result in results:
-        print("Rating: " + str(result['rating']) + "\nTitles: " + str(result['titles']) + "\n")    
+        print(f"Title id: {str(result['tconst'])}, Title rating: {str(result['averageRating'])}, Total votes: {str(result['numVotes'])}\n")    
 
 filterByRatingRange()
