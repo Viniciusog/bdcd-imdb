@@ -8,7 +8,7 @@ load_dotenv()
 MONGODB_URL = os.getenv("MONGODB_URL")
 myMongoClient = pymongo.MongoClient(MONGODB_URL)
 db = myMongoClient["projetoimdb"]
-ratingCollection = db["ratingCollection"]
+allRatingsCollection = db["allRatingsCollection"]
 
 
 def groupByRating():
@@ -35,7 +35,7 @@ def groupByRating():
 def insertRatings(ratings):
     print("Gravando no MongoDB...")
     for key in ratings:
-        ratingCollection.insert_one({"rating": key, "titles": ratings[key]})
+        allRatingsCollection.insert_one({"rating": key, "titles": ratings[key]})
     print("Finalizada escrita no MongoDB.")
 
 insertRatings()
