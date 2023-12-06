@@ -1,7 +1,7 @@
 import sys
 sys.path.append('..')
 
-from mongoConnection import MongoConnection
+from mongoConnection import getDBConnection
 
 db = getDBConnection()
 titleCrewCollection = db["titleCrewCollection"]
@@ -10,4 +10,4 @@ def getWritersByFilm(filmTconst):
     filmCrew = titleCrewCollection.find_one({'tconst':filmTconst})
     return filmCrew['writers']
 
-print(getWriterssByFilm('tt0000001'))
+print(getWritersByFilm('tt0000709'))
