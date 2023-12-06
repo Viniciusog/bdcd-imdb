@@ -26,7 +26,7 @@ def groupByRating():
 
             ratings[movie_rating].append(line['tconst'])
             
-        print(ratings[1])
+        #print(ratings[1])
 
         print("Agrupamento finalizado.")
         return ratings
@@ -38,4 +38,4 @@ def insertRatings(ratings):
         ratingCollection.insert_one({"rating": key, "titles": ratings[key]})
     print("Finalizada escrita no MongoDB.")
 
-groupByRating()
+insertRatings()
