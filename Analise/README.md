@@ -15,6 +15,7 @@ Contém todos os arquivos de filtragem de dados. Filtros disponíveis no momento
 - getTitleById: Retorna um título dado um id (tconst).
 - getTitleType: Dado um id de um título, retorna o tipo dele (série de tv, short, filme, etc)
 - getEpisodesByTitle: Dado um id de um título de série televisiva, retorna todos os episódios relacionados.
+- getTitleRating: Retorna a avaliação média e a quantidades de avaliações que um determinado título tem.
 
 ## Pasta insertions
 Contém os códigos em python que foram utilizados para realizar manipulação dos arquivos .csv e inserção no MongoDB. 
