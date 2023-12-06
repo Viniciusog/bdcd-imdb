@@ -1,0 +1,9 @@
+{
+    "id": "<ObjectPersonId1>",
+    "primary_name": "Johan Renck",
+    "birth_year": "1966",
+    "death_year": "null",
+    "primary_profession": ["director","soundtrack","actor"],
+    "KnowForTitles" : ["<ObjectBasicId1>", "<ObjectBasicId2>", 
+    "<ObjectBasicId3>", "<ObjectBasicId4>"]
+}
