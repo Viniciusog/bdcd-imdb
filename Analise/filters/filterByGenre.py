@@ -7,11 +7,11 @@ db = getDBConnection()
 genresCollection = db["genresCollection"]
 
 def filterByGenre(genre):
-    titles = genresCollection.find(genre)
+    obj = genresCollection.find_one({'genre': genre})
     
     print(f"{genre} titles: ")
-    for title in titles:
-        print(f"{title['primaryTitle']}\n")
+    for title in obj['titles']:
+        print(f"{title['tconst']}")
 
 genre = "Short"
 title = filterByGenre(genre)
