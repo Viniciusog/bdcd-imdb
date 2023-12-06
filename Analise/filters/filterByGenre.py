@@ -11,7 +11,7 @@ def filterByGenre(genre):
     
     print(f"{genre} titles: ")
     for title in titles:
-        print(f"{title}\n")
+        print(f"{title['primaryTitle']}\n")
 
 genre = "Short"
 title = filterByGenre(genre)
