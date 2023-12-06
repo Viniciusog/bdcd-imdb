@@ -15,8 +15,8 @@ def insertTitleCrew():
         for line in file_reader:
             currentTitleCrew = {
                 'tconst':line['tconst'],
-                'directors':line['directors'],
-                'writers':line['writers']
+                'directors':line['directors'].split(','),
+                'writers':line['writers'].split(',')
             }
             titleCrewCollection.insert_one(currentTitleCrew)
         print("Finalizando inserção - titleCrewCollection")
