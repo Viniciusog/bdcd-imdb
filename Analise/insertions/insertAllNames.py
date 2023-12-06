@@ -14,13 +14,18 @@ def insertAllNames():
         # nconst, primaryName, birthYear, deathYear, primaryProfession, knownForTitles
         
         for line in file_reader:
-            currentPerson = PersonBasic('','','','','','')
-            currentPerson.nconst = line['nconst']
-            currentPerson.primaryName = line["primaryName"]
-            currentPerson.birthYear = line["birthYear"]
-            currentPerson.deathYear = line['deathYear']
-            currentTitle.primaryProfession = line['primaryProfession']
-            currentTitle.knownForTitles = line['knownForTitles'].split(',')
+            
+            currentEpisode = {
+                'nconst':line['nconst'],
+                'primaryName':line['primaryName'],
+                'birthYear':line['birthYear'],
+                'deathYear':line['deathYear'],
+                'primaryProfession':line['primaryProfession'].split(','),
+                'knownForTitles':line['knownForTitles'].split(',')
+            }
 
-            allTitlesCollection.insert_one(currentPerson.__dict__)
-        print("Finalizando inserção - allTitlesCollection")
+            allTitlesCollection.insert_one(currentEpisode)
+        print("Finalizando inserção - allNamesCollection")
+
+
+insertAllNames()
