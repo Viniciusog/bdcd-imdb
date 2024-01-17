@@ -136,6 +136,7 @@ def populateGenres():
         myObjectGenre = GenreDoc(currentGenre, [])
         genresCollection.insert_one(myObjectGenre.__dict__)
 
+# Extremamente demorado
 def addTitlesToGenresCollection():
     with open("./ImdbTitleBasics.csv", 'r', encoding='utf-8') as arquivo_csv :
         leitor_csv = csv.DictReader(arquivo_csv)
@@ -156,6 +157,7 @@ def addTitlesToGenresCollection():
         print(f"Alterados: {cont}")
         print(f'contTitle: {contTitle}')
 
+# Muito rápido
 def addTitlesToTestCollection():
     myGenres = get_all_genres()
 
@@ -178,15 +180,6 @@ def addTitlesToTestCollection():
     
     for key in myDict.keys():
         testCollection.insert_one({'genre': key, 'titles': myDict[key]})
-
-            
-        
-        # Antes de inserir dentro do mongodb, temos que fazer uma pré organização dos dados
-        # isso será feito colocando cada conjunto de ids dentro de um arquivo, para somente depois percorrer esse
-        # arquivo, vamos adicionar os ids dentro de um array, pois cabe dentro da memória e em seguida adicionar esse
-        # array todo como um insert_one dentro do objeto no mongodb
-        # --> Fazer a mesma coisa para o ano em que o filme foi lançado
-
 
     print("alguma coisa")
     
