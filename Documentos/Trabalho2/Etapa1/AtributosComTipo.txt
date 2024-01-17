@@ -1,0 +1,85 @@
+CREATE 
+  (`1` :TitleGenre {genre:'STRING'}) ,
+  (`2` :Principal {ordering:'NUMBER',category:'STRING',job:'STRING'}) ,
+  (`3` :TitleBasic {tconst:'STRING',type:'STRING',isAdult:'BOOLEAN',primaryTitle:'STRING',endYear:'NUMBER',originalTitle:'STRING',startYear:'NUMBER',runtimeMinutes:'NUMBER'}) ,
+  (`4` :Character {name:'STRING'}) ,
+  (`5` :TitleAka {ordering:'NUMBER',title:'STRING',region:'STRING',language:'STRING',type:'STRING',isOriginalTitle:'BOOLEAN'}) ,
+  (`6` :TitleEpisode {tconst:'STRING',episodeNumber:'NUMBER',seasonNumber:'NUMBER'}) ,
+  (`7` :Person {nconst:'STRING',deathYear:'NUMBER',birthYear:'NUMBER',primaryName:'STRING'}) ,
+  (`12` :PrimaryProfession {description:'STRING'}) ,
+  (`13` :TitleRating {averageRating:'NUMBER',numVotes:'NUMBER'}) ,
+  (`3`)-[:`contains` ]->(`6`),
+  (`5`)-[:``is part of`` ]->(`3`),
+  (`3`)-[:`contains` ]->(`1`),
+  (`1`)-[:``contains one or more`` ]->(`3`),
+  (`3`)-[:``has one or more`` ]->(`2`),
+  (`2`)-[:`includes` ]->(`3`),
+  (`2`)-[:`includes` ]->(`7`),
+  (`2`)-[:`contains` ]->(`4`),
+  (`7`)-[:`has` ]->(`12`),
+  (`3`)-[:`includes` ]->(`13`),
+  (`13`)-[:``is part of`` ]->(`3`),
+  (`7`)-[:`create` ]->(`2`),
+  (`6`)-[:``is part of`` ]->(`3`)
+
+  ___________________
+
+  <ul class="graph-diagram-markup" data-internal-scale="0.87" data-external-scale="1">
+  <li class="node" data-node-id="1" data-x="-930.2886412609568" data-y="702.5336012566224">
+    <span class="caption">TitleGenre</span><dl class="properties"><dt>genre</dt><dd>STRING</dd></dl></li>
+  <li class="node" data-node-id="2" data-x="-2481.5912671143988" data-y="405.0872711970889">
+    <span class="caption">Principal</span><dl class="properties"><dt>ordering</dt><dd>NUMBER</dd><dt>category</dt><dd>STRING</dd><dt>job</dt><dd>STRING</dd></dl></li>
+  <li class="node" data-node-id="3" data-x="-1811.9065387331207" data-y="-28.287110438291993">
+    <span class="caption">TitleBasic</span><dl class="properties"><dt>tconst</dt><dd>STRING</dd><dt>type</dt><dd>STRING</dd><dt>isAdult</dt><dd>BOOLEAN</dd><dt>primaryTitle</dt><dd>STRING</dd><dt>endYear</dt><dd>NUMBER</dd><dt>originalTitle</dt><dd>STRING</dd><dt>startYear</dt><dd>NUMBER</dd><dt>runtimeMinutes</dt><dd>NUMBER</dd></dl></li>
+  <li class="node" data-node-id="4" data-x="-3200.553805121056" data-y="615.4687643599226">
+    <span class="caption">Character</span><dl class="properties"><dt>name</dt><dd>STRING</dd></dl></li>
+  <li class="node" data-node-id="5" data-x="-877.0565992333435" data-y="-162.3288567586877">
+    <span class="caption">TitleAka</span><dl class="properties"><dt>ordering</dt><dd>NUMBER</dd><dt>title</dt><dd>STRING</dd><dt>region</dt><dd>STRING</dd><dt>language</dt><dd>STRING</dd><dt>type</dt><dd>STRING</dd><dt>isOriginalTitle</dt><dd>BOOLEAN</dd></dl></li>
+  <li class="node" data-node-id="6" data-x="-846.5433192198303" data-y="284.6223206694783">
+    <span class="caption">TitleEpisode</span><dl class="properties"><dt>tconst</dt><dd>STRING</dd><dt>episodeNumber</dt><dd>NUMBER</dd><dt>seasonNumber</dt><dd>NUMBER</dd></dl></li>
+  <li class="node" data-node-id="7" data-x="-3092.5160262886097" data-y="152.8970164540169">
+    <span class="caption">Person</span><dl class="properties"><dt>nconst</dt><dd>STRING</dd><dt>deathYear</dt><dd>NUMBER</dd><dt>birthYear</dt><dd>NUMBER</dd><dt>primaryName</dt><dd>STRING</dd></dl></li>
+  <li class="node" data-node-id="12" data-x="-3755.969499851085" data-y="152.8970164540169">
+    <span class="caption">PrimaryProfession</span><dl class="properties"><dt>description</dt><dd>STRING</dd></dl></li>
+  <li class="node" data-node-id="13" data-x="-1469.608698220089" data-y="861.2450369473162">
+    <span class="caption">TitleRating</span><dl class="properties"><dt>averageRating</dt><dd>NUMBER</dd><dt>numVotes</dt><dd>NUMBER</dd></dl></li>
+  <li class="relationship" data-from="3" data-to="6">
+    <span class="type">contains</span>
+  </li>
+  <li class="relationship" data-from="5" data-to="3">
+    <span class="type">is part of</span>
+  </li>
+  <li class="relationship" data-from="3" data-to="1">
+    <span class="type">contains</span>
+  </li>
+  <li class="relationship" data-from="1" data-to="3">
+    <span class="type">contains one or more</span>
+  </li>
+  <li class="relationship" data-from="3" data-to="2">
+    <span class="type">has one or more</span>
+  </li>
+  <li class="relationship" data-from="2" data-to="3">
+    <span class="type">includes</span>
+  </li>
+  <li class="relationship" data-from="2" data-to="7">
+    <span class="type">includes</span>
+  </li>
+  <li class="relationship" data-from="2" data-to="4">
+    <span class="type">contains</span>
+  </li>
+  <li class="relationship" data-from="7" data-to="12">
+    <span class="type">has</span>
+  </li>
+  <li class="relationship" data-from="3" data-to="13">
+    <span class="type">includes</span>
+  </li>
+  <li class="relationship" data-from="13" data-to="3">
+    <span class="type">is part of</span>
+  </li>
+  <li class="relationship" data-from="7" data-to="2">
+    <span class="type">create</span>
+  </li>
+  <li class="relationship" data-from="6" data-to="3">
+    <span class="type">is part of</span>
+  </li>
+</ul>

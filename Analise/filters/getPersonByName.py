@@ -7,9 +7,9 @@ db = getDBConnection()
 allNamesCollection = db['allNamesCollection']
 
 def getPersonByName(primaryName):
-    myPerson = allNamesCollection.find_one({"primaryName":primaryName})
+    myPerson = allNamesCollection.find({"primaryName":primaryName})
     return myPerson
 
-#teste hardcoded
 person = getPersonByName("John Belushi")
-print(person)
+for p in person:
+    print(p)
