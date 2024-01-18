@@ -1,0 +1,99 @@
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleAkas.csv' AS row 
+WITH row
+LIMIT 10000
+CREATE (:TitleAka {
+  titleId: row.titleId,
+  ordering: toInteger(row.ordering),
+  title: row.title,
+  region: row.region,
+  language: row.language,
+  types: row.types,
+  attributes: row.attributes,
+  isOriginalTitle: toInteger(row.isOriginalTItle)
+});
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleRatings.csv' AS row
+WITH row 
+SKIP 0 LIMIT 10000
+CREATE (:TitleRatings {
+    tconst: row.tconst,
+    averageRating: toFloat(row.averageRating),
+    numVotes: toInteger(row.numVotes)
+});
+
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitlePrincipals.csv' AS row
+WITH row 
+SKIP 0 LIMIT 10000
+CREATE (:TitlePrincipal {
+    tconst: row.tconst,
+    ordering: toInteger(row.ordering),
+    nconst: row.nconst,
+    category: row.category,
+    job: row.job,
+    characters: row.characters
+});
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisode.csv' AS row 
+WITH row
+SKIP 0 LIMIT 10000
+CREATE (:TitleEpisode {
+  tconst: row.tconst,
+  parentTconst: row.parentTconst,
+  seasonNumber: toInteger(row.seasonNumber),
+  episodeNumber: toInteger(row.episodeNumber)
+});
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleCrew.csv' AS row 
+WITH row
+SKIP 0 LIMIT 10000
+CREATE (:TitleCrew {
+  tconst: row.tconst,
+  directors: row.directors,
+  writers: row.writers
+});
+
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleBasics.csv' AS row
+WITH row 
+SKIP 0 LIMIT 10000
+CREATE (:TitleBasics {
+    tconst: row.tconst,
+    titleType: toInteger(row.titleType),
+    primaryTitle: row.primaryTitle,
+    originalTitle: row.originalTitle,
+    isAdult: toInteger(row.isAdult),
+    startYear: toInteger(row.startYear),
+    runtimeMinutes: toInteger(row.runtimeMinutes),
+    genres: row.genres
+});
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbName.csv' AS row
+WITH row 
+SKIP 0 LIMIT 10000
+CREATE (:ImdbNameL {
+    nconst: row.nconst,
+    primaryName: row.primaryName,
+    birthYear: toInteger(row.birthYear),
+    deathYear: toInteger(row.deathYear),
+    primaryProfession: row.primaryProfession,
+    knownForTitles: row.knownForTitles
+});
+
+// RELAÇÕES
+NAME --> PRINCIPAL
+MATCH (p:ImdbNameL), (principal:TitlePrincipal)
+WHERE p.nconst = principal.nconst
+MERGE (p)-[:TRABALHOU_COMO]->(principal)
+
+PRINCIPAL --> NAME
+MATCH (p:ImdbNameL), (principal:TitlePrincipal)
+WHERE p.nconst = principal.nconst
+MERGE (principal)-[:DESEMPENHADO_POR]->(p)
+
+MATCH (p:ImdbNameL)
+WITH p, split(p.primaryProfession, ",") AS valores
+UNWIND valores AS valor
+MERGE (primaryp:PrimaryProfession {description: valor})
+MERGE (p)-[r:TRABALHA_COMO]->(primaryp)
+
