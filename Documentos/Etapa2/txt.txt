@@ -1,0 +1,251 @@
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt0041038'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt0989125'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt0048893'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt1087823'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt5510950'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt0348951'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt0302161'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt2409866'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt4906380'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt1071712'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt5586510'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt0369137'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt0108929'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt6645582'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt3667404'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt0315677'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt0043229'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt0841964'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt11753318'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt11844982'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt3910364'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt7268356'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt4493582'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt0103487'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
+LOAD CSV WITH HEADERS FROM 'file:///ImdbTitleEpisodes.csv' AS row
+WITH row
+WHERE row.parentTconst = 'tt1268700'
+CREATE (:ImdbTitleBasics {
+    tconst: row.tconst
+    parentTconst: row.parentTconst
+    seasonNumber: row.seasonNumber
+    episodeNumber: row.episodeNumber
+})
+
