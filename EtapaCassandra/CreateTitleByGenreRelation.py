@@ -8,7 +8,7 @@ def insertTitleAkaRelation():
     # Supondo que 'df' seja o seu DataFrame
 
     # Dividir os gêneros em cada linha usando a vírgula como delimitador
-    generos_divididos = df['generos'].str.split(',')
+    generos_divididos = dfTitle['generos'].str.split(',')
 
     # Converter a lista de gêneros em um conjunto para eliminar duplicatas
     generos_unicos = set([genero.strip() for sublist in generos_divididos.dropna() for genero in sublist])
