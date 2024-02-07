@@ -1,5 +1,6 @@
 import pandas as pd
 
+# Pega os Aka's que estejam relacionados com os 10k primeiros títulos
 def insertTitleAkaRelation():
     dfTitle = pd.read_csv("../Analise/ImdbTitleBasicsWithRating.csv", nrows=10000)
     dfAka = pd.read_csv("../Analise/ImdbTitleAkas.csv")
