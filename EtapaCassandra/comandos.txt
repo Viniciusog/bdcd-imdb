@@ -63,3 +63,36 @@ CREATE TABLE Episodes_by_title (
 
 COPY Episodes_by_title (tconst, parentTconst, seasonNumber, episodeNumber)
 FROM '/tmp/ImdbTitleEpisode10000.csv' WITH DELIMITER=',' HEADER=TRUE;
+
+/ ------ CRIAÇÃO TITLE BY DIRECTOR ------
+CREATE TABLE title_by_director (
+    tconst TEXT,
+    titleType TEXT,
+    primaryTitle TEXT,
+    originalTitle TEXT,
+    isAdult BOOLEAN,
+    startYear TEXT,
+    endYear TEXT,
+    runtimeMinutes TEXT,
+    genres TEXT,
+    averageRating FLOAT,
+    nconst TEXT,
+    PRIMARY KEY(nconst, tconst)
+);
+
+COPY title_by_director (
+    tconst,
+    titleType,
+    primaryTitle,
+    originalTitle,
+    isAdult,
+    startYear,
+    endYear,
+    runtimeMinutes,
+    genres,
+    averageRating,
+    nconst,
+    PRIMARY KEY(nconst, tconst)
+);
+FROM '/tmp/title_by_director.csv'
+WITH DELIMITER=',' AND HEADER=TRUE;
