@@ -1,0 +1,53 @@
+// ------ PARTE DE INSTALAÇÃO DO CASSANDRA (USANDO DOCKER) ------
+
+docker pull cassandra:latest
+
+docker run -d --name meu-cassandra -p 9042:9042 -v C:/UFSCAR/BDCD/TrabalhoBDCD/Analise:/dados cassandra:latest
+
+docker exec -it meu-cassandra bash (Roda bash no container, para listagem de diretórios, etc)
+
+docker exec -it meu-cassandra cqlsh (Roda o terminal do cassandra)
+
+CREATE KEYSPACE meu_keyspace
+WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};
+
+USE meu_keyspace;
+
+// TEM QUE USAR O ARQUIVO DO TITLE BASICS COM RATING (Isso foi feito usando o arquivo CreateCsvTitleWithRating)
+
+// ------ CRIAÇÃO DAS TABELAS ------
+// tconst,titleType,primaryTitle,originalTitle,isAdult,startYear,endYear,runtimeMinutes,genres,averageRating
+
+CREATE TABLE title (
+    tconst text PRIMARY KEY,
+    titleType text,
+    primaryTitle text,
+    originalTitle text,
+    isAdult boolean,    
+    startYear int,
+    endYear text,
+    runtimeMinutes text,
+    genres text,
+    averageRating float      
+);
+
+// ------ IMPORTAÇÃO DOS DADOS ------
+
+COPY title (tconst,titleType,primaryTitle,originalTitle,isAdult,startYear,endYear,runtimeMinutes,genres,averageRating) FROM '/dados/ImdbTitleBasicsWithRating.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+// ------ RELAÇÃO TITLE COM AKA ------
+
+CREATE TABLE AkaByTitle (
+    titleId text,
+    ordering text,
+    title text,
+    region text,
+    language text,
+    types text,
+    attributes text,
+    isOriginalTitle boolean,
+    PRIMARY KEY ((titleId, ordering))
+);
+
+COPY title (tconst,titleType,primaryTitle,originalTitle,isAdult,startYear,endYear,runtimeMinutes,genres,averageRating) FROM '/dados/ImdbTitleBasicsWithRating.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
