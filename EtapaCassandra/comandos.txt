@@ -81,7 +81,7 @@ CREATE TABLE Episodes_by_title (
 );
 
 COPY Episodes_by_title (tconst, parentTconst, seasonNumber, episodeNumber)
-FROM '/tmp/ImdbTitleEpisode10000.csv' WITH DELIMITER=',' HEADER=TRUE;
+FROM '/tmp/ImdbTitleEpisode10000.csv' WITH DELIMITER=',' AND HEADER=TRUE;
 
 / ------ CRIAÇÃO TITLE BY DIRECTOR ------
 CREATE TABLE title_by_director (
