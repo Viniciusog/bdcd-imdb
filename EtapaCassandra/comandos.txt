@@ -51,5 +51,21 @@ CREATE TABLE AkaByTitle (
 
 COPY AkaByTitle (titleId, ordering, title, region, language, types, attributes, isOriginalTitle) FROM '/dados/ImdbTitleBasicsAkaRelation.csv' WITH DELIMITER=',' AND HEADER=TRUE;
 
-// 
+// ------ RELAÇÃO TITLE COM GENRE ------
+CREATE TABLE TitleByGenre (
+   tconst text,
+   titleType text,
+   primaryTitle text,
+   originalTitle text,
+   isAdult boolean,
+   startYear int,
+   endYear text,
+   runtimeMinutes int,
+   genres text,
+   averageRating float,
+   genre text,
+   PRIMARY KEY ((tconst, genre))
+);
+
+COPY TitleByGenre (tconst,titleType, primaryTitle, originalTitle, isAdult, startYear, endYear, runtimeMinutes, genres, averageRating, genre) FROM '/dados/ImdbTitleBasicsGenreRelation.csv' WITH DELIMITER=',' AND HEADER=TRUE;
 

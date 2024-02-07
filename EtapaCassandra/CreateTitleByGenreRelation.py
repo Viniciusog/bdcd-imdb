@@ -1,29 +1,31 @@
 import pandas as pd
 
-def insertTitleAkaRelation():
-    dfTitle = pd.read_csv("../Analise/ImdbTitleBasicsWithRating.csv", nrows=10000)
+def insertTitleGenreRelation():
+    df_original = pd.read_csv("../Analise/ImdbTitleBasicsWithRating.csv", nrows=10000)
+        
+    # DataFrame vazio para armazenar os dados separados por gênero
+    df_por_genero = pd.DataFrame(columns=df_original.columns)
+
+    # Loop sobre as linhas do DataFrame original
+    for index, row in df_original.iterrows():
+        generos = row['genres'].split(',')  # Divide os gêneros em uma lista
+        
+        # Para cada gênero na lista de gêneros
+        for genero in generos:
+            # Cria uma cópia dos dados da linha
+            nova_linha = row.copy()
+            # Define o gênero da nova linha como o gênero atual do loop
+            nova_linha['genre'] = genero.strip()  # Remove espaços em branco
+            # Adiciona a nova linha ao DataFrame df_por_genero
+            df_por_genero = pd.concat([df_por_genero, nova_linha.to_frame().T], ignore_index=True)
+
+    # Exibe o novo DataFrame com os dados separados por gênero
+    df_por_genero.info()
+    print(df_por_genero)
     
-    dfTitle.info()
+    df_por_genero.to_csv("ImdbTitleBasicsGenreRelation.csv", index=False)
     
-    # Supondo que 'df' seja o seu DataFrame
-
-    # Dividir os gêneros em cada linha usando a vírgula como delimitador
-    generos_divididos = dfTitle['generos'].str.split(',')
-
-    # Converter a lista de gêneros em um conjunto para eliminar duplicatas
-    generos_unicos = set([genero.strip() for sublist in generos_divididos.dropna() for genero in sublist])
-
-    # Calcular o tamanho do conjunto para obter o número total de gêneros únicos
-    quantidade_generos_diferentes = len(generos_unicos)
-
-    print("Quantidade total de gêneros diferentes:", quantidade_generos_diferentes)
+    
 
 
-
-
-    # Supondo que 'df' seja o seu DataFrame
-    # Salvar o DataFrame em um arquivo CSV chamado 'nome_do_arquivo.csv'
-    # dfMerged.to_csv("ImdbTitleBasicsAkaRelation.csv", index=False)
-
-
-insertTitleAkaRelation()
+insertTitleGenreRelation()
