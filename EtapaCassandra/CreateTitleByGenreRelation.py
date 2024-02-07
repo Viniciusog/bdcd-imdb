@@ -2,30 +2,28 @@ import pandas as pd
 
 def insertTitleAkaRelation():
     dfTitle = pd.read_csv("../Analise/ImdbTitleBasicsWithRating.csv", nrows=10000)
-    dfAka = pd.read_csv("../Analise/ImdbTitleAkas.csv")
-
-    dfMerged = pd.merge(
-        dfAka, dfTitle[["tconst"]],
-        left_on="titleId", right_on="tconst",
-        how="left"
-    )
     
-    # Remover linhas onde o valor da coluna 'tconst' é vazio
-    # Ou seja, vamos manter apenas os Akas que estão relacionadas aos 10k primeiros títulos
-    dfMerged = dfMerged.dropna(subset=['tconst'])
-
-    # Remover a coluna 'nome_da_coluna' do DataFrame
-    dfMerged = dfMerged.drop(columns=['tconst'])
-
-    # print(dfRating['tconst'].nunique())-1, 
-    # print(dfRating["tconst"].nunique())
+    dfTitle.info()
     
-    dfMerged.info()
+    # Supondo que 'df' seja o seu DataFrame
+
+    # Dividir os gêneros em cada linha usando a vírgula como delimitador
+    generos_divididos = df['generos'].str.split(',')
+
+    # Converter a lista de gêneros em um conjunto para eliminar duplicatas
+    generos_unicos = set([genero.strip() for sublist in generos_divididos.dropna() for genero in sublist])
+
+    # Calcular o tamanho do conjunto para obter o número total de gêneros únicos
+    quantidade_generos_diferentes = len(generos_unicos)
+
+    print("Quantidade total de gêneros diferentes:", quantidade_generos_diferentes)
+
+
 
 
     # Supondo que 'df' seja o seu DataFrame
     # Salvar o DataFrame em um arquivo CSV chamado 'nome_do_arquivo.csv'
-    dfMerged.to_csv("ImdbTitleBasicsAkaRelation.csv", index=False)
+    # dfMerged.to_csv("ImdbTitleBasicsAkaRelation.csv", index=False)
 
 
 insertTitleAkaRelation()
