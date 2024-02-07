@@ -122,3 +122,37 @@ CREATE TABLE person_by_title (
 );
 
 COPY person_by_title (tconst, nconst, category, characters, primaryName, birthYear, deathYear, primaryProfession) FROM '/dados/ImdbTitlePersonByTitleRelation.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+// ---- INSERINDO 10K DE PESSOAS -----
+nconst,primaryName,birthYear,deathYear,primaryProfession,knownForTitles
+
+CREATE TABLE person (
+    nconst text,
+    primaryName text,
+    birthYear text,
+    deathYear text,
+    primaryProfession text,
+    knownForTitles text,
+    PRIMARY KEY (nconst)
+);
+
+COPY person (nconst, primaryName, birthYear, deathYear, primaryProfession, knownForTitles) FROM '/dados/ImdbName10k.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+// ---- TITLE BY START YEAR -----
+tconst,titleType,primaryTitle,originalTitle,isAdult,startYear,endYear,runtimeMinutes,genres,averageRating
+
+CREATE TABLE title_by_start_year (
+    tconst text,
+    titleType text,
+    primaryTitle text,
+    originalTitle text,
+    isAdult boolean,
+    startYear text,
+    endYear text,
+    runtimeMinutes text,
+    genres text,
+    averageRating float,
+    PRIMARY KEY (startYear, tconst)
+);
+
+COPY title_by_start_year (tconst,titleType,primaryTitle,originalTitle,isAdult,startYear,endYear,runtimeMinutes,genres,averageRating) FROM '/dados/ImdbTitleBasicsWithRating.csv' WITH DELIMITER=',' AND HEADER=TRUE;
