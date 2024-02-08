@@ -1,0 +1,25 @@
+// ---- LISTANDO AS VIEWS MATERIALIZADAS ----
+docker cp meu-cassandra:/etc/cassandra/cassandra.yaml ./cassandra.yaml
+docker cp ./cassandra.yaml meu-cassandra:/etc/cassandra/cassandra.yaml
+
+SELECT view_name FROM system_schema.views WHERE keyspace_name = 'meu_keyspace';
+
+// TÍTULO COM AKAS - Pegar Akas por título
+CREATE MATERIALIZED VIEW IF NOT EXISTS aka_by_title_view
+AS SELECT titleId, ordering, title, region, language, types, attributes, isOriginalTitle
+FROM AkaByTitle
+WHERE titleId IS NOT NULL AND ordering IS NOT NULL
+PRIMARY KEY (titleId, ordering);
+
+// VISÃO MATERIALIZADA - PESSOAS E SEUS CARGOS NOS FILMES
+CREATE MATERIALIZED VIEW mv_pessoa_filmes_cargos_categorias AS
+    SELECT *
+    FROM person_by_title
+    WHERE category IS NOT NULL AND tconst IS NOT NULL AND nconst IS NOT NULL
+    PRIMARY KEY (category, tconst, nconst);
+
+SELECT * FROM mv_pessoa_filmes_cargos_categorias WHERE category = 'director';
+
+// VISÃO MATERIALIZADA - TITLE BY RATING 
+CREATE MATERIALIZED VIEW title_by_rating AS SELECT * FROM title_by_start_year WHERE averageRating IS NOT NULL AND tconst IS NOT NULL AND originalTitle IS NOT NULL AND startYear IS NOT NULL PRIMARY KEY (tconst, startYear, averageRating);
+
