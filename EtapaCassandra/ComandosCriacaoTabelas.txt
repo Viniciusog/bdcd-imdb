@@ -10,3 +10,161 @@ docker exec -it meu-cassandra bash (Roda bash no container, para listagem de dir
 
 docker exec -it meu-cassandra cqlsh (Roda o terminal do cassandra)
 
+CREATE KEYSPACE meu_keyspace
+WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};
+
+USE meu_keyspace;
+
+// TEM QUE USAR O ARQUIVO DO TITLE BASICS COM RATING (Isso foi feito usando o arquivo CreateCsvTitleWithRating)
+
+// ------ CRIAÇÃO DAS TABELAS ------
+// tconst,titleType,primaryTitle,originalTitle,isAdult,startYear,endYear,runtimeMinutes,genres,averageRating
+
+CREATE TABLE title (
+    tconst text PRIMARY KEY,
+    titleType text,
+    primaryTitle text,
+    originalTitle text,
+    isAdult boolean,    
+    startYear int,
+    endYear text,
+    runtimeMinutes text,
+    genres text,
+    averageRating float      
+);
+
+// ------ IMPORTAÇÃO DOS DADOS ------
+
+COPY title (tconst,titleType,primaryTitle,originalTitle,isAdult,startYear,endYear,runtimeMinutes,genres,averageRating) FROM '/dados/ImdbTitleBasicsWithRating.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+// ------ RELAÇÃO TITLE COM AKA ------
+
+CREATE TABLE AkaByTitle (
+    titleId text,
+    ordering text,
+    title text,
+    region text,
+    language text,
+    types text,
+    attributes text,
+    isOriginalTitle boolean,
+    PRIMARY KEY ((titleId, ordering))
+);
+
+COPY AkaByTitle (titleId, ordering, title, region, language, types, attributes, isOriginalTitle) FROM '/dados/ImdbTitleBasicsAkaRelation.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+// ------ RELAÇÃO TITLE COM GENRE ------
+CREATE TABLE TitleByGenre (
+   tconst text,
+   titleType text,
+   primaryTitle text,
+   originalTitle text,
+   isAdult boolean,
+   startYear int,
+   endYear text,
+   runtimeMinutes int,
+   genres text,
+   averageRating float,
+   genre text,
+   PRIMARY KEY ((tconst, genre))
+);
+
+COPY TitleByGenre (tconst,titleType, primaryTitle, originalTitle, isAdult, startYear, endYear, runtimeMinutes, genres, averageRating, genre) FROM '/dados/ImdbTitleBasicsGenreRelation.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+// ------ CRIAÇÃO EPISODES BY TITLE ------
+
+CREATE TABLE episodes_by_title (
+    tconst text,
+    parentTconst text,
+    seasonNumber text,
+    episodeNumber text,
+    PRIMARY KEY (tconst, parentTconst)
+);
+
+COPY Episodes_by_title (tconst, parentTconst, seasonNumber, episodeNumber)
+FROM '/tmp/ImdbTitleEpisode10000.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+// ------ CRIAÇÃO TITLE BY DIRECTOR ------
+CREATE TABLE title_by_director (
+    tconst TEXT,
+    titleType TEXT,
+    primaryTitle TEXT,
+    originalTitle TEXT,
+    isAdult BOOLEAN,
+    startYear TEXT,
+    endYear TEXT,
+    runtimeMinutes TEXT,
+    genres TEXT,
+    averageRating FLOAT,
+    directors TEXT,
+    director TEXT,
+    PRIMARY KEY(director, tconst)
+);
+
+
+COPY title_by_director (tconst, titleType, primaryTitle, originalTitle, isAdult, startYear, endYear, runtimeMinutes, genres, averageRating, directors, director)
+FROM '/dados/ImdbTitleBasicsDirectorRelation.csv'
+WITH DELIMITER=',' AND HEADER=TRUE;
+
+// ---- CRIAÇÃO PRINCIPALS PERSON ----
+tconst,nconst,category,characters,primaryName,birthYear,deathYear,primaryProfession
+
+CREATE TABLE person_by_title (
+    tconst text,
+    nconst text,
+    category text,
+    characters text,
+    primaryName text,
+    birthYear text,
+    deathYear text,
+    primaryProfession text,
+    PRIMARY KEY (tconst, nconst)
+);
+
+COPY person_by_title (tconst, nconst, category, characters, primaryName, birthYear, deathYear, primaryProfession) FROM '/dados/ImdbTitlePersonByTitleRelation.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+// ---- INSERINDO 10K DE PESSOAS -----
+nconst,primaryName,birthYear,deathYear,primaryProfession,knownForTitles
+
+CREATE TABLE person (
+    nconst text,
+    primaryName text,
+    birthYear text,
+    deathYear text,
+    primaryProfession text,
+    knownForTitles text,
+    PRIMARY KEY (nconst)
+);
+
+COPY person (nconst, primaryName, birthYear, deathYear, primaryProfession, knownForTitles) FROM '/dados/ImdbName10k.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+// ---- TITLE BY START YEAR -----
+tconst,titleType,primaryTitle,originalTitle,isAdult,startYear,endYear,runtimeMinutes,genres,averageRating
+
+CREATE TABLE title_by_start_year (
+    tconst text,
+    titleType text,
+    primaryTitle text,
+    originalTitle text,
+    isAdult boolean,
+    startYear text,
+    endYear text,
+    runtimeMinutes text,
+    genres text,
+    averageRating float,
+    PRIMARY KEY (startYear, tconst)
+);
+
+COPY title_by_start_year (tconst,titleType,primaryTitle,originalTitle,isAdult,startYear,endYear,runtimeMinutes,genres,averageRating) FROM '/dados/ImdbTitleBasicsWithRating.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+// ---- TITLE EPISODES -----
+tconst,parentTconst,seasonNumber,episodeNumber
+CREATE TABLE episodes (
+    tconst text,
+    parentTconst text, 
+    seasonNumber text,
+    episodeNumber text,
+    PRIMARY KEY(parentTconst, tconst)
+);
+
+COPY episodes (tconst,parentTconst,seasonNumber,episodeNumber) FROM '/dados/ImdbTitleEpisode10k.csv' WITH DELIMITER=',' AND HEADER=TRUE;
