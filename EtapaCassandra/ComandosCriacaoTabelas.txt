@@ -168,3 +168,6 @@ CREATE TABLE episodes (
 );
 
 COPY episodes (tconst,parentTconst,seasonNumber,episodeNumber) FROM '/dados/ImdbTitleEpisode10k.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+// Remover visão materializada
+DROP MATERIALIZED VIEW IF EXISTS meu_keyspace.mv_pessoa_filmes_cargos_categorias;

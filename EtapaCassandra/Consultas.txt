@@ -3,7 +3,10 @@ SELECT * FROM meu_keyspace.person;
 
 SELECT * from meu_keyspace.person where nconst = 'nm0007191';
 
+
 // TITLE BY GENRE
+SELECT * FROM title_by_genre_view WHERE genre = 'Comedy'
+
 SELECT * FROM meu_keyspace.titleByGenre;
 
 SELECT * FROM meu_keyspace.titleByGenre WHERE genre = 'Drama' ALLOW FILTERING;
@@ -12,6 +15,7 @@ SELECT * FROM meu_keyspace.titleByGenre WHERE genre = 'Western' ALLOW FILTERING;
 
 SELECT * FROM meu_keyspace.titleByGenre WHERE titletype = 'short' ALLOW FILTERING;
 
+
 // TITLE BY START YEAR
 SELECT * FROM title_by_start_year;
 
@@ -19,7 +23,10 @@ SELECT * FROM title_by_start_year WHERE startYear = '1918';
 
 SELECT * FROM title_by_start_year WHERE startYear = '1918' AND titleType = 'movie' ALLOW FILTERING;
 
+
 // PERSON BY TITLE
+SELECT * FROM mv_pessoa_filmes_cargos_categorias WHERE category = 'director';
+
 SELECT * FROM person_by_title;
 
 SELECT * FROM person_by_title WHERE tconst = 'tt0066986'
@@ -28,6 +35,9 @@ SELECT * FROM person_by_title WHERE category = 'writer' ALLOW FILTERING;
 
 SELECT * FROM person_by_title WHERE deathYear = '2020' ALLOW FILTERING;
 
+SELECT COUNT(*) FROM person_by_title;
+
+
 // EPISODES BY TITLE
 SELECT * FROM episodes;
 
@@ -35,10 +45,12 @@ SELECT * FROM episodes WHERE parentTconst = 'tt2162303';
 
 SELECT * FROM episodes WHERE seasonNumber = '1' ALLOW FILTERING;
 
+
 // TITLE BY DIRECTOR
 SELECT * FROM title_by_director;
 
 SELECT * FROM title_by_director WHERE director = 'nm0227020';
+
 
 // AKAS BY TITLE
 SELECT * FROM akabytitle;
@@ -51,3 +63,4 @@ SELECT * FROM title;
 SELECT * FROM title WHERE tconst = 'tt0000382';
 
 SELECT * FROM title where originalTitle = 'The Impostor' ALLOW FILTERING;
+

@@ -12,7 +12,7 @@ WHERE titleId IS NOT NULL AND ordering IS NOT NULL
 PRIMARY KEY (titleId, ordering);
 
 // VISÃO MATERIALIZADA - PESSOAS E SEUS CARGOS NOS FILMES
-CREATE MATERIALIZED VIEW mv_pessoa_filmes_cargos_categorias AS
+CREATE MATERIALIZED VIEW mv_pessoa_filmes_cargos_categorias_tudo AS
     SELECT *
     FROM person_by_title
     WHERE category IS NOT NULL AND tconst IS NOT NULL AND nconst IS NOT NULL
@@ -23,3 +23,18 @@ SELECT * FROM mv_pessoa_filmes_cargos_categorias WHERE category = 'director';
 // VISÃO MATERIALIZADA - TITLE BY RATING 
 CREATE MATERIALIZED VIEW title_by_rating AS SELECT * FROM title_by_start_year WHERE averageRating IS NOT NULL AND tconst IS NOT NULL AND originalTitle IS NOT NULL AND startYear IS NOT NULL PRIMARY KEY (tconst, startYear, averageRating);
 
+// VISÃO MATERIALIZADA - TITLE EPISODES
+CREATE MATERIALIZED VIEW IF NOT EXISTS episodes_view
+AS SELECT tconst, parentTconst, seasonNumber, episodeNumber
+FROM meu_keyspace.Episodes
+WHERE tconst IS NOT NULL AND parentTconst IS NOT NULL
+PRIMARY KEY (parentTconst, tconst);
+
+// VISÃO MATERIALIZADA - TÍTULO POR GÊNERO
+CREATE MATERIALIZED VIEW IF NOT EXISTS title_by_genre_view
+AS SELECT tconst, titleType, primaryTitle, originalTitle, isAdult, averageRating, genre
+FROM meu_keyspace.TitleByGenre
+WHERE tconst IS NOT NULL AND genre IS NOT NULL
+PRIMARY KEY (genre, tconst);
+
+SELECT * FROM title_by_genre_view WHERE genre = 'Comedy'
