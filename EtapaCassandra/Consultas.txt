@@ -1,0 +1,35 @@
+// PESSOAS
+SELECT * FROM meu_keyspace.person;
+
+SELECT * from meu_keyspace.person where nconst = 'nm0007191';
+
+// TÍTULOS
+SELECT * FROM meu_keyspace.titleByGenre;
+
+SELECT * FROM meu_keyspace.titleByGenre WHERE genre = 'Drama' ALLOW FILTERING;
+
+SELECT * FROM meu_keyspace.titleByGenre WHERE genre = 'Western' ALLOW FILTERING;
+
+SELECT * FROM meu_keyspace.titleByGenre WHERE titletype = 'short' ALLOW FILTERING;
+
+// TITLE BY START YEAR
+SELECT * FROM title_by_start_year;
+
+SELECT * FROM title_by_start_year WHERE startYear = '1918';
+
+SELECT * FROM title_by_start_year WHERE startYear = '1918' AND titleType = 'movie' ALLOW FILTERING;
+
+// PERSON BY TITLE
+SELECT * FROM person_by_title;
+
+SELECT * FROM person_by_title WHERE tconst = 'tt0066986'
+
+SELECT * FROM person_by_title WHERE category = 'writer' ALLOW FILTERING;
+
+SELECT * FROM person_by_title WHERE deathYear = '2020' ALLOW FILTERING;
+
+// EPISODES BY TITLE
+
+SELECT * FROM episodes_by_title
+
+SELECT * FROM episode

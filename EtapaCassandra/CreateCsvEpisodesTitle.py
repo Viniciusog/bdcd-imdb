@@ -1,12 +1,7 @@
 import pandas as pd
 
-def filter1000ep():
-    dfTitle = pd.read_csv("../Analise/ImdbTitleEpisode.csv", nrows=10000)
+dfTitleBasic = pd.read_csv("../Analise/ImdbTitleEpisode.csv", nrows=10000)
 
+dfTitleBasic.info()
 
-
-
-    dfTitle.to_csv("ImdbTitleEpisode10000.csv", index=False)
-
-
-filter1000ep()
+dfTitleBasic.to_csv("ImdbTitleEpisode10k.csv", index=False)

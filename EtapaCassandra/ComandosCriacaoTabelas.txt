@@ -156,3 +156,15 @@ CREATE TABLE title_by_start_year (
 );
 
 COPY title_by_start_year (tconst,titleType,primaryTitle,originalTitle,isAdult,startYear,endYear,runtimeMinutes,genres,averageRating) FROM '/dados/ImdbTitleBasicsWithRating.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+
+// ---- TITLE EPISODES -----
+tconst,parentTconst,seasonNumber,episodeNumber
+CREATE TABLE episodes (
+    tconst text,
+    parentTconst text, 
+    seasonNumber text,
+    episodeNumber text,
+    PRIMARY KEY(parentTconst, tconst)
+);
+
+COPY episodes (tconst,parentTconst,seasonNumber,episodeNumber) FROM '/dados/ImdbTitleEpisode10k.csv' WITH DELIMITER=',' AND HEADER=TRUE;
