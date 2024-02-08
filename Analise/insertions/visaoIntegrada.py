@@ -43,6 +43,9 @@ def create_consolidated_table():
         PRIMARY KEY ((titleId, ordering), tconst, parentTconst, director, nconst, startYear)
 );
 
+ INSERT INTO consolidated_data (titleId, ordering, title, region, language, types, attributes, isOriginalTitle, tconst, titleType, primaryTitle, originalTitle, isAdult, startYear, endYear, runtimeMinutes, genres, averageRating, genre, parentTconst, seasonNumber, episodeNumber, directors, director, nconst, category, characters, primaryName, birthYear, deathYear, primaryProfession, knownForTitles)
+        VALUES ('null', 'null', '', '', '', '', '', false, 'null', '', '', '', false, -1, '', -1, '', -1.0, '', 'null', '', '', '', '', '', '', '', '', '', '', '', '');
+
     """)
 
 # Define a function to consolidate data
