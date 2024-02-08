@@ -48,7 +48,7 @@ CREATE TABLE AkaByTitle (
     types text,
     attributes text,
     isOriginalTitle boolean,
-    PRIMARY KEY ((titleId, ordering))
+    PRIMARY KEY (titleId, ordering)
 );
 
 COPY AkaByTitle (titleId, ordering, title, region, language, types, attributes, isOriginalTitle) FROM '/dados/ImdbTitleBasicsAkaRelation.csv' WITH DELIMITER=',' AND HEADER=TRUE;

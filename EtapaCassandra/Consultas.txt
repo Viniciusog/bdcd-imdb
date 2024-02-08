@@ -3,7 +3,7 @@ SELECT * FROM meu_keyspace.person;
 
 SELECT * from meu_keyspace.person where nconst = 'nm0007191';
 
-// TÍTULOS
+// TITLE BY GENRE
 SELECT * FROM meu_keyspace.titleByGenre;
 
 SELECT * FROM meu_keyspace.titleByGenre WHERE genre = 'Drama' ALLOW FILTERING;
@@ -29,7 +29,25 @@ SELECT * FROM person_by_title WHERE category = 'writer' ALLOW FILTERING;
 SELECT * FROM person_by_title WHERE deathYear = '2020' ALLOW FILTERING;
 
 // EPISODES BY TITLE
+SELECT * FROM episodes;
 
-SELECT * FROM episodes_by_title
+SELECT * FROM episodes WHERE parentTconst = 'tt2162303'; 
 
-SELECT * FROM episode
+SELECT * FROM episodes WHERE seasonNumber = '1' ALLOW FILTERING;
+
+// TITLE BY DIRECTOR
+SELECT * FROM title_by_director;
+
+SELECT * FROM title_by_director WHERE director = 'nm0227020';
+
+// AKAS BY TITLE
+SELECT * FROM akabytitle;
+
+SELECT * FROM akabytitle WHERE titleid = 'tt0004702';
+
+// TITLE 
+SELECT * FROM title;
+
+SELECT * FROM title WHERE tconst = 'tt0000382';
+
+SELECT * FROM title where originalTitle = 'The Impostor' ALLOW FILTERING;
